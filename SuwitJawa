@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class SuwitJawa {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String[] pilihan = {"batu", "gunting", "kertas"};
+
+        System.out.println("== Suwit Jawa ==");
+        System.out.println("Pilih tanganmu: ");
+        System.out.println("1. Batu");
+        System.out.println("2. Gunting");
+        System.out.println("3. Kertas");
+        System.out.print(" Kamu memilih :");
+        int tangan = input.nextInt();
+
+        if (tangan < 1 || tangan > 3) {
+            System.out.println("Pilihan tidak valid!");
+        } else {
+            System.out.println("Tanganmu: " + pilihan[tangan - 1]);
+
+            int komputer = (int) (Math.random() * 3);
+            System.out.println("Tangan komputer: " + pilihan[komputer]);
+
+            if (tangan == komputer + 1) {
+                System.out.println("Seri!");
+            } else if (tangan == 1 && komputer == 2 || tangan == 2 && komputer == 0 || tangan == 0 && komputer == 1) {
+                System.out.println("Maaf, Kamu Kalah");
+            } else {
+                System.out.println("Selamat, kamu menang!");
+            }
+        }
+        input.close();
+    }
+}
